@@ -2,6 +2,7 @@
   "name": "agency",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@8.4.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons": "^2.18.0",
+    "@tabler/icons-react": "^2.18.0",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
