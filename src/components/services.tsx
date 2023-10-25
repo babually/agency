@@ -2,7 +2,6 @@
 
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
-import { XyzTransitionGroup } from '@animxyz/react'
 
 export function Services() {
   const services = [
