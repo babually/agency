@@ -1,5 +1,8 @@
+"use client"
+
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { XyzTransitionGroup } from '@animxyz/react'
 
 export function Services() {
   const services = [
@@ -85,45 +88,55 @@ export function Services() {
     },
   ];
 
+
   return (
     <section className="py-16 bg-slate-100">
-      <div className="max-w-screen-lg mx-auto px-6 text-gray-600 md:px-8">
-        <div className="max-w-xl mx-auto space-y-3 sm:text-center">
-          <h3 className="text-gray-800 text-4xl font-semibold sm:text-4xl">
-            Awesome Services For Growing Your Business
-          </h3>
+        <div className="max-w-screen-lg mx-auto px-6 text-gray-600 md:px-8">
+          <div className="max-w-xl mx-auto space-y-3 sm:text-center">
+            <h3 className="text-gray-800 text-4xl font-semibold sm:text-4xl">
+              Awesome Services For Growing Your Business
+            </h3>
+          </div>
+          <div className="mt-12">
+                <ul 
+                className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-2"
+              >
+                {services.map((item, idx) => (
+                  <li 
+                    key={idx} 
+                    className="flex 
+                    gap-x-4"
+                  >
+                    <div className="flex-none w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg text-gray-800 font-semibold">
+                        {item.title}
+                      </h4>
+                      <p className="mt-3">{item.desc}</p>
+                      <div className="mt-6 flex">
+                          <Link key={idx} href={item.href} className=" hover:text-gray-800 duration-150">
+                            <p className="text-1xl font-bold pr-2">Discover More</p>
+                          </Link>
+                          <IconArrowRight 
+                              size={16} 
+                              color="gray" 
+                              stroke={3}  
+                              strokeLinejoin="miter" 
+                              className="mt-1"
+                          />
+                      </div>
+                      
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            
+          </div>
         </div>
-        <div className="mt-12">
-          <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-2">
-            {services.map((item, idx) => (
-              <li key={idx} className="flex gap-x-4">
-                <div className="flex-none w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-lg text-gray-800 font-semibold">
-                    {item.title}
-                  </h4>
-                  <p className="mt-3">{item.desc}</p>
-                  <div className="mt-6 flex">
-                      <Link key={idx} href={item.href} className=" hover:text-gray-800 duration-150">
-                        <p className="text-1xl font-bold pr-2">Discover More</p>
-                      </Link>
-                      <IconArrowRight 
-                          size={16} 
-                          color="gray" 
-                          stroke={3}  
-                          strokeLinejoin="miter" 
-                          className="mt-1"
-                      />
-                  </div>
-                  
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+          
+      
     </section>
   );
 }
